@@ -1,0 +1,35 @@
+--create a store database
+
+CREATE TABLE stellas_boutique (id INTEGER PRIMARY KEY, item TEXT, size TEXT, price INTEGER, sold INTEGER);
+
+INSERT INTO stellas_boutique values (1, "amethyst cluster", "large", 135, 2);
+INSERT INTO stellas_boutique values (2, "amethyst cluster", "small", 45, 5);
+INSERT INTO stellas_boutique values (3, "selenite wand", "large", 20, 6); 
+INSERT INTO stellas_boutique values (4, "selenite wand", "small", 7, 13);
+INSERT INTO stellas_boutique values (5, "tumble mix", "variety", 15, 25);
+INSERT INTO stellas_boutique values (6, "hematite goddess", "large", 24, 13);
+INSERT INTO stellas_boutique values (7, "ocean jasper palm", "small", 17, 3);
+INSERT INTO stellas_boutique values (8, "black obsidian tower", "small", 18, 5); 
+INSERT INTO stellas_boutique values (9, "quartz pendant", "large", 22, 7);
+INSERT INTO stellas_boutique values (10, "amethyst pendant", "large", 22, 13); 
+INSERT INTO stellas_boutique values (11, "rose quartz pendant", "large", 22, 11);
+INSERT INTO stellas_boutique values (12, "dragons blood insense", "cones", 6, 12);
+INSERT INTO stellas_boutique values (13, "nag champa incense", "cones", 6, 12); 
+INSERT INTO stellas_boutique values (14, "myrrh incense", "cones", 6, 9);
+INSERT INTO stellas_boutique values (15, "moon phase shelf", "large", 45, 3);
+
+--display the database order by price
+
+SELECT * FROM stellas_boutique ORDER BY price desc;
+
+--what is the average price of the small items?
+
+SELECT AVG(price) "average price" FROM stellas_boutique WHERE size="small"; 
+
+--how many of each item sold?
+
+SELECT item, sold FROM stellas_boutique ORDER BY sold desc; 
+
+--what was the total number of items sold?
+
+SELECT SUM(sold) FROM stellas_boutique;
