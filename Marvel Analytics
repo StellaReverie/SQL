@@ -1,0 +1,54 @@
+#In this SQL code, I'm querying a database that's holding Marvel character data to answer questions about the data.
+
+#1. Who is the tallest Marvel character?
+SELECT name, MAX(height_m) 
+FROM marvels;
+
+#2. What is the average height of all of the characters?
+SELECT AVG(height_m) 
+FROM marvels; 
+
+#3. Which characters are taller than 1.80 meters?
+SELECT name, height_m 
+FROM marvels 
+WHERE height_m >= 1.80;
+
+#4. Which characters identify as female and are taller than 1.80 meters?
+SELECT name, height_m 
+FROM marvels 
+WHERE height_m >= 1.80 
+AND gender = "Female"; 
+
+#5. How many Marvel characters identify as male and how many identify as female?
+SELECT gender, COUNT(*) AS quantity 
+FROM marvels 
+GROUP BY gender; 
+
+#6. Which characters are male and use their powers for good?
+SELECT name 
+FROM marvels 
+WHERE gender = "Male" 
+AND alignment = "Good"; 
+
+#7. Which characters are not from the United States? 
+SELECT name, hometown 
+FROM marvels 
+WHERE hometown NOT IN ("USA");
+
+#8. What countries are the Marvel characters from? 
+SELECT COUNT(*), hometown
+FROM marvels
+GROUP BY hometown
+HAVING COUNT(*)
+ORDER BY COUNT(*) DESC;
+
+#9. Which characters are the top candidates to join our team?
+SELECT name, intelligence, alignment,
+CASE
+    WHEN intelligence > 5 AND alignment="Good" THEN "Top candidate"
+    WHEN intelligence > 5 AND alignment= "Bad" THEN "Not a good candidate"
+    WHEN intelligence < 5 AND alignment="Good" THEN "Promising candidate"
+    WHEN intelligence < 5 AND alignment="BAD" THEN "Poor candidate"
+    ELSE "Possible candidate"
+END AS prospects
+FROM marvels;
