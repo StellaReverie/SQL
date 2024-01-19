@@ -1,4 +1,4 @@
-#In this SQL code, I queried a database that's holding Marvel character data to answer questions about the characters.
+In this SQL code, I queried a database that's holding Marvel character data to answer questions about the characters.
 
 #1. Who is the tallest Marvel character?
 SELECT name, MAX(height_m) 
