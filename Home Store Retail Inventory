@@ -1,3 +1,5 @@
+In this SQL code, I queried a database that's holding retail inventory to answer questions about the items sold.
+
 #1. What items were sold and how much did they cost?
 
 SELECT * 
