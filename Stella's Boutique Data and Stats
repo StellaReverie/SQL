@@ -1,3 +1,6 @@
+Below I have created a table for a small boutique. I then used the data to answer questions about the items sold. 
+
+
 CREATE TABLE stellas_boutique (id INTEGER PRIMARY KEY, item TEXT, size TEXT, price INTEGER, sold INTEGER);
 
 INSERT INTO stellas_boutique values (1, "amethyst cluster", "large", 135, 2);
